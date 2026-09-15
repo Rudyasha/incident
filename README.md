@@ -6,9 +6,7 @@
 
 ## Читать в GitHub
 
-- [Обзор](docs/index.md)
-- [Контекст](docs/incident/context.md)
-- [Flow и схемы](docs/incident/flow.md)
+- [Flow и схемы](docs/index.md)
 - [Хронология](docs/incident/timeline.md)
 - [Гипотезы](docs/incident/hypotheses.md)
 - [Артефакты A–C](docs/incident/artifacts.md)
