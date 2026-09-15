@@ -50,11 +50,8 @@ markdown_extensions:
 extra_css:
   - assets/styles.css
 nav:
-  - 'Задача 1 · Анализ инцидента':
-    - Архитектура и flow: index.md
-    - Хронология и корреляция: incident/timeline.md
-    - '1. Гипотезы по слоям': incident/hypotheses.md
-    - '2. Разбор артефактов A–C': incident/artifacts.md
-    - '3. Предварительное заключение': incident/conclusion.md
-    - '4. Вопросы аналитику': incident/questions.md
-  - Источники и границы проверки: sources.md
+  - О задании: index.md
+  - Задача 1. Анализ инцидента: task-1.md
+  - Задача 2. Баг-репорт: task-2.md
+  - Задача 3. Тест-кейсы: task-3.md
+  - Исходные материалы: sources.md
