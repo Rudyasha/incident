@@ -1,0 +1,62 @@
+site_name: Lincore · Разбор инцидента
+site_url: https://rudyasha.github.io/incident/
+repo_url: https://github.com/Rudyasha/incident
+repo_name: Rudyasha/incident
+site_description: QA-расследование — одна операция, две попытки, разные состояния
+use_directory_urls: true
+theme:
+  name: material
+  language: ru
+  font: false
+  icon:
+    logo: material/transit-connection-variant
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Тёмная тема
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Светлая тема
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.footer
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+plugins:
+  - search:
+      lang: [ru, en]
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+extra_css:
+  - assets/styles.css
+nav:
+  - Обзор: index.md
+  - 'Задача 1 · Анализ инцидента':
+    - Контекст и допущения: incident/context.md
+    - Архитектура и flow: incident/flow.md
+    - Хронология и корреляция: incident/timeline.md
+    - '1. Гипотезы по слоям': incident/hypotheses.md
+    - '2. Разбор артефактов A–C': incident/artifacts.md
+    - '3. Предварительное заключение': incident/conclusion.md
+    - '4. Вопросы аналитику': incident/questions.md
+  - Источники и границы проверки: sources.md
