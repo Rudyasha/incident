@@ -13,17 +13,6 @@
 ## Схема взаимодействия
 
 ```mermaid
-flowchart LR
-    A[Driver App] --> B[Lincore API]
-    B --> D[(БД)]
-    B --> K[Kafka]
-    K --> C[1C Connector]
-    C --> E[1С:ERP]
-```
-
-Приложение получает ответ от Lincore, а счёт создаётся асинхронно через Kafka и коннектор.
-
-```mermaid
 sequenceDiagram
     actor Driver as Водитель
     participant App as App
