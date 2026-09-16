@@ -50,7 +50,6 @@ markdown_extensions:
 extra_css:
   - assets/styles.css
 nav:
-  - О задании: index.md
   - Задача 1. Анализ инцидента: task-1.md
   - Задача 2. Баг-репорт: task-2.md
   - Задача 3. Тест-кейсы: task-3.md
