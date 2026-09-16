@@ -4,7 +4,7 @@
 
 **POST** `/api/v1/exchanges`
 
-8 кейсов · 4 позитивных · 4 негативных · Статус: не запускались
+8 кейсов · 4 позитивных · 4 негативных
 
 </div>
 
@@ -16,6 +16,9 @@
 
 В названиях кейсов я предпочитаю указывать значимые поля и их значения, а также отмечать позитивный или негативный сценарий. Здесь тип вынесен в отдельную метку рядом с приоритетом.
 
+!!! note "Ожидания, которые нужно согласовать"
+    Набор составлен для предполагаемого контракта: оба поля обязательны, принимают целые неотрицательные числа, суммарное количество не превышает 64. Допустимость `0/0`, неравных количеств и максимума в одном поле требует ответа аналитика. Для ошибок валидации `422` указан как предлагаемый код, а не подтверждённое требование. [Вопросы аналитику](task-1.md#4).
+
 <div class="test-case" markdown>
 
 ## TC-01 · Минимальные значения: clean_mats=0, dirty_mats=0 {#tc-01}
@@ -24,7 +27,6 @@
 
 <span class="case-tag positive">Positive / Boundary</span>
 <span class="case-tag priority">P1</span>
-<span class="case-tag">Не запускался</span>
 
 </div>
 
@@ -45,10 +47,10 @@
 
 ### Шаги
 
-1. Подготовить валидный запрос по остальным полям.
-2. Установить `clean_mats=0`, `dirty_mats=0`.
-3. Выполнить `POST /api/v1/exchanges`.
-4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`.
+1. Подготовить валидный запрос по остальным полям
+2. Установить `clean_mats=0`, `dirty_mats=0`
+3. Выполнить `POST /api/v1/exchanges`
+4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`
 
 ### Ожидаемый результат
 
@@ -67,7 +69,6 @@
 
 <span class="case-tag positive">Positive / Boundary</span>
 <span class="case-tag priority">P1</span>
-<span class="case-tag">Не запускался</span>
 
 </div>
 
@@ -88,10 +89,10 @@
 
 ### Шаги
 
-1. Подготовить валидный запрос по остальным полям.
-2. Установить `clean_mats=31`, `dirty_mats=32`.
-3. Выполнить `POST /api/v1/exchanges`.
-4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`.
+1. Подготовить валидный запрос по остальным полям
+2. Установить `clean_mats=31`, `dirty_mats=32`
+3. Выполнить `POST /api/v1/exchanges`
+4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`
 
 ### Ожидаемый результат
 
@@ -110,7 +111,6 @@
 
 <span class="case-tag positive">Positive / Boundary</span>
 <span class="case-tag priority">P0</span>
-<span class="case-tag">Не запускался</span>
 
 </div>
 
@@ -129,10 +129,10 @@
 
 ### Шаги
 
-1. Подготовить валидный запрос по остальным полям.
-2. Установить `clean_mats=32`, `dirty_mats=32`.
-3. Выполнить `POST /api/v1/exchanges`.
-4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`.
+1. Подготовить валидный запрос по остальным полям
+2. Установить `clean_mats=32`, `dirty_mats=32`
+3. Выполнить `POST /api/v1/exchanges`
+4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`
 
 ### Ожидаемый результат
 
@@ -151,7 +151,6 @@
 
 <span class="case-tag positive">Positive / Boundary</span>
 <span class="case-tag priority">P1</span>
-<span class="case-tag">Не запускался</span>
 
 </div>
 
@@ -172,11 +171,11 @@
 
 ### Шаги
 
-1. Подготовить валидный запрос по остальным полям.
-2. Установить `clean_mats=0`, `dirty_mats=64`.
-3. Выполнить `POST /api/v1/exchanges`.
-4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`.
-5. Проверить состояние точки: оно соответствует согласованному правилу завершения обмена.
+1. Подготовить валидный запрос по остальным полям
+2. Установить `clean_mats=0`, `dirty_mats=64`
+3. Выполнить `POST /api/v1/exchanges`
+4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`
+5. Проверить состояние точки: оно соответствует согласованному правилу завершения обмена
 
 ### Ожидаемый результат
 
@@ -195,7 +194,6 @@
 
 <span class="case-tag negative">Negative</span>
 <span class="case-tag priority">P1</span>
-<span class="case-tag">Не запускался</span>
 
 </div>
 
@@ -211,10 +209,10 @@
 
 ### Шаги
 
-1. Подготовить валидный запрос по остальным полям.
-2. Удалить поле `clean_mats` из JSON целиком; установить `dirty_mats=1`. Не передавать пустую строку или `null`.
-3. Выполнить `POST /api/v1/exchanges`.
-4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`.
+1. Подготовить валидный запрос по остальным полям
+2. Удалить поле `clean_mats` из JSON целиком; установить `dirty_mats=1`; не передавать пустую строку или `null`
+3. Выполнить `POST /api/v1/exchanges`
+4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`
 
 ### Ожидаемый результат
 
@@ -232,7 +230,6 @@
 
 <span class="case-tag negative">Negative</span>
 <span class="case-tag priority">P1</span>
-<span class="case-tag">Не запускался</span>
 
 </div>
 
@@ -249,10 +246,10 @@
 
 ### Шаги
 
-1. Подготовить валидный запрос по остальным полям.
-2. Установить `clean_mats=1`, `dirty_mats=null`.
-3. Выполнить `POST /api/v1/exchanges`.
-4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`.
+1. Подготовить валидный запрос по остальным полям
+2. Установить `clean_mats=1`, `dirty_mats=null`
+3. Выполнить `POST /api/v1/exchanges`
+4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`
 
 ### Ожидаемый результат
 
@@ -270,7 +267,6 @@
 
 <span class="case-tag negative">Negative / Boundary</span>
 <span class="case-tag priority">P0</span>
-<span class="case-tag">Не запускался</span>
 
 </div>
 
@@ -289,10 +285,10 @@
 
 ### Шаги
 
-1. Подготовить валидный запрос по остальным полям.
-2. Установить `clean_mats=32`, `dirty_mats=33`.
-3. Выполнить `POST /api/v1/exchanges`.
-4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`.
+1. Подготовить валидный запрос по остальным полям
+2. Установить `clean_mats=32`, `dirty_mats=33`
+3. Выполнить `POST /api/v1/exchanges`
+4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`
 
 ### Ожидаемый результат
 
@@ -310,7 +306,6 @@
 
 <span class="case-tag negative">Negative</span>
 <span class="case-tag priority">P1</span>
-<span class="case-tag">Не запускался</span>
 
 </div>
 
@@ -327,10 +322,10 @@
 
 ### Шаги
 
-1. Подготовить валидный запрос по остальным полям.
-2. Передать `clean_mats` строкой `"8"`, а `dirty_mats` — числом `8`.
-3. Выполнить `POST /api/v1/exchanges`.
-4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`.
+1. Подготовить валидный запрос по остальным полям
+2. Передать `clean_mats` строкой `"8"`, а `dirty_mats` — числом `8`
+3. Выполнить `POST /api/v1/exchanges`
+4. Проверить ответ API, записи в БД и сообщения Kafka по `exchange_id`
 
 ### Ожидаемый результат
 
