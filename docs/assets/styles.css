@@ -15,3 +15,17 @@
 .md-typeset .mermaid { overflow-x: auto; padding: 1rem 0; }
 @media (max-width: 600px) { .md-typeset .hero { padding: 1.2rem; } }
 @media print { .md-header,.md-sidebar,.md-footer,.md-top { display:none!important; } .md-typeset .hero { background: none; color:#111; padding:0; } .md-typeset .hero h1 { color:#111; } }
+
+/* Test case cards: scoped to the test suite. */
+.md-typeset .suite-summary { padding: 1rem 1.2rem; border-left: 4px solid #168777; background: var(--md-code-bg-color); border-radius: 8px; }
+.md-typeset .suite-summary p { margin: .3rem 0; }
+.md-typeset .test-case { border: 1px solid var(--md-default-fg-color--lightest); border-radius: 12px; padding: 1.2rem 1.4rem; margin: 1.5rem 0; }
+.md-typeset .test-case h2 { margin-top: 0; font-size: 1.15rem; }
+.md-typeset .test-case h3 { font-size: .82rem; font-weight: 700; margin-top: 1.2rem; }
+.md-typeset .case-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: .8rem 0; }
+.md-typeset .case-tag { display: inline-block; padding: .15rem .55rem; border-radius: 5px; background: var(--md-code-bg-color); font-size: .65rem; font-weight: 600; }
+.md-typeset .case-tag.positive { color: #09624c; background: #def5ea; }
+.md-typeset .case-tag.negative { color: #9b3039; background: #ffe8eb; }
+.md-typeset .case-tag.priority { color: #765005; background: #fff0ce; }
+@media (max-width: 600px) { .md-typeset .test-case { padding: .8rem; } }
+@media print { .md-typeset .test-case { break-inside: avoid; } }
